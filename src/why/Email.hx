@@ -17,3 +17,35 @@ typedef EmailConfig = {
 	content:Content,
 	attachments:Array<Attachment>
 }
+
+@:forward
+abstract Address(AddressBase) from AddressBase to AddressBase {
+	@:from
+	public static function parse(v:String):Address {
+		throw 'TODO';
+	}
+}
+
+private typedef AddressBase = {
+	var name(default, never):String;
+	var address(default, never):String;
+}
+
+@:forward
+abstract Content(ContentBase) from ContentBase to ContentBase {
+	
+}
+
+private typedef ContentBase = {
+	var text(default, never):String;
+	var html(default, never):String;
+}
+
+typedef Attachment = {
+	filename:String,
+	source:AttachmentSource,
+}
+
+enum AttachmentSource {
+	Local(path:String);
+}

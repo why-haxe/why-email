@@ -5,12 +5,12 @@ import why.Email;
 using haxe.io.Path;
 using tink.CoreApi;
 
-class NodeEmail implements Email {
+class Nodemailer implements Email {
 	
 	var transporter:Transporter;
 	
 	public function new(config:TransporterConfig) {
-		transporter = NodeMailer.createTransport(config);
+		transporter = NativeNodemailer.createTransport(config);
 	}
 	
 	public function send(config:EmailConfig):Promise<Noise> {
@@ -36,7 +36,7 @@ class NodeEmail implements Email {
 
 
 @:jsRequire('nodemailer')
-extern class NodeMailer {
+extern class NativeNodemailer {
     static function createTransport(opts:TransporterConfig):Transporter;
 }
 
