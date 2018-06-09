@@ -46,9 +46,9 @@ extern class Transporter {
 
 typedef TransporterConfig = {
 	host:String,
-	port:Int,
-	secure:Bool,
-	auth:{
+	?port:Int,
+	?secure:Bool,
+	?auth:{
 		user:String,
 		pass:String,
 	},
