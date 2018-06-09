@@ -14,6 +14,10 @@ class RunTests {
         host: 'localhost',
         port: 1025
       })),
+      new EmailTest(new Smtpmailer({
+        host: 'localhost',
+        port: 1025
+      })),
     ])).handle(Runner.exit);
   }
   

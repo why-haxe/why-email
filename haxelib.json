@@ -1,7 +1,9 @@
 {
   "name": "why-email",
   "classPath": "src",
-  "dependencies": {},
+  "dependencies": {
+    "smtpmailer": ""
+  },
   "contributors": [
     "kevinresol"
   ],

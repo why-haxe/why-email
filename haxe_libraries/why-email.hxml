@@ -1,2 +1,4 @@
 -cp src
 -D why-email
+
+-lib smtpmailer
