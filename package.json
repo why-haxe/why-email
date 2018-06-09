@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "nodemailer": "^4.6.5"
+  },
+  "devDependencies": {
+    "haxe-travix": "^0.11.2",
+    "lix": "^15.2.0-alpha"
+  }
+}
