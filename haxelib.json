@@ -1,0 +1,14 @@
+{
+  "name": "why-email",
+  "classPath": "src",
+  "dependencies": {},
+  "contributors": [
+    "kevinresol"
+  ],
+  "tags": [
+    "email"
+  ],
+  "version": "0.0.0",
+  "license": "MIT",
+  "releasenote": "initial release"
+}
