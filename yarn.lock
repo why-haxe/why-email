@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-haxe-travix@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/haxe-travix/-/haxe-travix-0.11.2.tgz#8cbe13a3cc178cdc1f0d10f17c5740b998303a00"
-
-lix@^15.2.0-alpha:
-  version "15.2.0-alpha"
-  resolved "https://registry.yarnpkg.com/lix/-/lix-15.2.0-alpha.tgz#e5dddb291a9cfa606cf3449a91efa7214b1d928e"
-
 nodemailer@^4.6.5:
   version "4.6.5"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.5.tgz#306ce18c4543f3f06e5f76665d3cb6277f872f53"
