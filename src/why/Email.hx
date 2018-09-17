@@ -24,10 +24,15 @@ abstract Address(AddressBase) from AddressBase to AddressBase {
 	public static function parse(v:String):Address {
 		throw 'TODO';
 	}
+	
+	@:to
+	public function toString():String {
+		return if(this.name == null) this.address else '"${this.name}" <${this.address}>';
+	}
 }
 
 private typedef AddressBase = {
-	var name(default, never):String;
+	@:optional var name(default, never):String;
 	var address(default, never):String;
 }
 
