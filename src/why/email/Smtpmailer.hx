@@ -6,6 +6,7 @@ import smtpmailer.SmtpMailer as Impl;
 using haxe.io.Path;
 using tink.CoreApi;
 
+@:require('smtpmailer')
 class Smtpmailer implements Email {
 	
 	var mailer:Impl;
