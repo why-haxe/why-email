@@ -20,7 +20,7 @@ class EmailTest {
 				text: 'Test Plain Text Content',
 				html: '<p>Test Html Content</p>',
 			},
-			attachments: [],
+			attachments: [], // TODO
 		}).handle(function(sent) {
 			asserts.assert(sent);
 			asserts.done();

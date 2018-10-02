@@ -24,7 +24,7 @@ class Smtpmailer implements Email {
 				text: config.content.text,
 				html: config.content.html,
 			},
-			attachments: []
+			attachments: [], // TODO
 		}).map(function(o) return switch o {
 			case Success(_): Success(Noise);
 			case Failure(e): trace(e); Failure(Error.withData('Smtp Error', e));

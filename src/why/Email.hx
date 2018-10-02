@@ -2,6 +2,7 @@ package why;
 
 import why.email.*;
 
+using StringTools;
 using tink.CoreApi;
 
 interface Email {
@@ -15,14 +16,22 @@ typedef EmailConfig = {
 	?bcc:Array<Address>,
 	subject:String,
 	content:Content,
-	attachments:Array<Attachment>
+	?attachments:Array<Attachment>
 }
 
 @:forward
 abstract Address(AddressBase) from AddressBase to AddressBase {
 	@:from
 	public static function parse(v:String):Address {
-		throw 'TODO';
+		var re = ~/^(.*)\s?<(.*)>$/;
+		return if(re.match(v)) {
+			var name = re.matched(1).trim();
+			if(name.charCodeAt(0) == '"'.code && name.charCodeAt(name.length - 1) == '"'.code)
+				name = name.substr(1, name.length - 2);
+			{name: name, address: re.matched(2)}
+		} else {
+			{address: v}
+		}
 	}
 	
 	@:to

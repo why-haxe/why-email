@@ -7,8 +7,8 @@ import why.email.*;
 class RunTests {
 
   static function main() {
-    AwsSes;
     Runner.run(TestBatch.make([
+      new AddressTest(),
       new EmailTest(new Nodemailer({
         host: 'localhost',
         port: 1025
