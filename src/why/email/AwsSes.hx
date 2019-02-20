@@ -1,12 +1,10 @@
 package why.email;
 
-import js.aws.ses.SES;
 import why.Email;
 
 using tink.CoreApi;
 
 @:build(futurize.Futurize.build())
-@:require('extern-js-aws-sdk')
 @:require('futurize')
 class AwsSes implements Email {
 	var ses:SES;
@@ -38,4 +36,11 @@ class AwsSes implements Email {
 			},
 		}, $cb1);
 	}
+}
+
+
+@:jsRequire('aws-sdk', 'SES')
+private extern class SES {
+	function new(?opt:{});
+	function sendEmail(opt:{}, cb:js.Error->Dynamic->Void):Void;
 }
