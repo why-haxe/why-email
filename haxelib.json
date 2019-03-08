@@ -1,15 +1,15 @@
 {
 	"name": "why-email",
-	"classPath": "src",
 	"description": "Abstraction of various email services",
+	"classPath": "src",
 	"dependencies": {
 		"tink_core": ""
 	},
 	"contributors": [
 		"kevinresol"
 	],
-	"version": "0.1.0",
-	"releasenote": "Initial release",
+	"version": "0.1.1",
+	"releasenote": "Fix dependency",
 	"tags": [
 		"email"
 	],
