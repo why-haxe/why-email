@@ -4,6 +4,10 @@ import why.Email;
 
 using tink.CoreApi;
 
+/**
+ * AWS SES
+ * Requires the `aws-sdk` node module
+ */
 @:build(futurize.Futurize.build())
 @:require('futurize')
 class AwsSes implements Email {

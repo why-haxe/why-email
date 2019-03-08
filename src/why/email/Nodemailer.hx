@@ -5,6 +5,11 @@ import why.Email;
 using haxe.io.Path;
 using tink.CoreApi;
 
+#if nodejs
+/**
+ * Requires the `nodemailer` node package
+ * https://nodemailer.com/
+ */
 class Nodemailer implements Email {
 	
 	var transporter:Transporter;
@@ -53,3 +58,4 @@ typedef TransporterConfig = {
 		pass:String,
 	},
 }
+#end
