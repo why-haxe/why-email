@@ -4,6 +4,7 @@ import why.email.*;
 
 using StringTools;
 using tink.CoreApi;
+using tink.io.Source;
 
 interface Email {
 	function send(config:EmailConfig):Promise<Noise>;
@@ -62,4 +63,5 @@ typedef Attachment = {
 
 enum AttachmentSource {
 	Local(path:String);
+	Source(source:RealSource);
 }

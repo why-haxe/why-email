@@ -3,6 +3,7 @@ package why.email;
 import why.Email;
 
 using haxe.io.Path;
+using tink.io.Source;
 using tink.CoreApi;
 
 #if nodejs
@@ -32,6 +33,7 @@ class Nodemailer implements Email {
 				if(config.attachments != null) for(attachment in config.attachments)
 					switch attachment.source {
 						case Local(path): attachments.push({filename: attachment.filename, path: path});
+						case Source(source): attachments.push({filename: attachment.filename, content: source.toNodeStream()});
 					}
 				attachments;
 			},

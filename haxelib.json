@@ -3,7 +3,7 @@
 	"description": "Abstraction of various email services",
 	"classPath": "src",
 	"dependencies": {
-		"tink_core": ""
+		"tink_io": ""
 	},
 	"contributors": [
 		"kevinresol"
