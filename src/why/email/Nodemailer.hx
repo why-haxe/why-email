@@ -29,7 +29,7 @@ class Nodemailer implements Email {
 			text: config.content.text,
 			html: config.content.html,
 			attachments: {
-				var attachments = [];
+				var attachments:Array<{}> = [];
 				if(config.attachments != null) for(attachment in config.attachments)
 					switch attachment.source {
 						case Local(path): attachments.push({filename: attachment.filename, path: path});
