@@ -1,6 +1,7 @@
 package why.email;
 
 import why.Email;
+import #if haxe4 js.lib.Promise #else js.Promise #end as JsPromise;
 
 using haxe.io.Path;
 using tink.io.Source;
@@ -33,7 +34,7 @@ class Nodemailer implements Email {
 				if(config.attachments != null) for(attachment in config.attachments)
 					switch attachment.source {
 						case Local(path): attachments.push({filename: attachment.filename, path: path});
-						case Source(source): attachments.push({filename: attachment.filename, content: source.toNodeStream()});
+						case Stream(source): attachments.push({filename: attachment.filename, content: source.toNodeStream()});
 					}
 				attachments;
 			},
@@ -48,7 +49,7 @@ extern class NativeNodemailer {
 }
 
 extern class Transporter {
-    function sendMail(opts:Dynamic):js.Promise<{}>;
+    function sendMail(opts:Dynamic):JsPromise<{}>;
 }
 
 typedef TransporterConfig = {
