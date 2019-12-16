@@ -1,6 +1,7 @@
 package why.email;
 
 import why.Email;
+import #if haxe4 js.lib.Error #else js.Error #end as JsError;
 
 using tink.CoreApi;
 
@@ -46,5 +47,5 @@ class AwsSes implements Email {
 @:jsRequire('aws-sdk', 'SES')
 private extern class SES {
 	function new(?opt:{});
-	function sendEmail(opt:{}, cb:js.Error->Dynamic->Void):Void;
+	function sendEmail(opt:{}, cb:JsError->Dynamic->Void):Void;
 }
