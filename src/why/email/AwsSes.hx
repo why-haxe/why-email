@@ -2,6 +2,7 @@ package why.email;
 
 import why.Email;
 import #if haxe4 js.lib.Error #else js.Error #end as JsError;
+import #if haxe4 js.lib.Promise #else js.Promise #end as JsPromise;
 
 using tink.CoreApi;
 
@@ -9,8 +10,6 @@ using tink.CoreApi;
  * AWS SES
  * Requires the `aws-sdk` node module
  */
-@:build(futurize.Futurize.build())
-@:require('futurize')
 class AwsSes implements Email {
 	var ses:SES;
 	
@@ -19,7 +18,7 @@ class AwsSes implements Email {
 	}
 	
 	public function send(config:EmailConfig):Promise<Noise> {
-		return @:futurize ses.sendEmail({
+		return Promise.ofJsPromise(ses.sendEmail({
 			Source: config.from.toString(),
 			Destination: {
 				ToAddresses: config.to == null ? null : [for(a in config.to) a.toString()],
@@ -39,7 +38,7 @@ class AwsSes implements Email {
 					},
 				}
 			},
-		}, $cb1);
+		}).promise());
 	}
 }
 
@@ -47,5 +46,9 @@ class AwsSes implements Email {
 @:jsRequire('aws-sdk', 'SES')
 private extern class SES {
 	function new(?opt:{});
-	function sendEmail(opt:{}, cb:JsError->Dynamic->Void):Void;
+	function sendEmail(opt:{}):Request<Dynamic>;
+}
+
+private extern class Request<T> {
+	function promise():JsPromise<T>;
 }
