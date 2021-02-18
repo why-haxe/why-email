@@ -1,6 +1,8 @@
 package why;
 
-import why.email.*;
+import why.email.Address;
+import why.email.Attachment;
+import why.email.Content;
 
 using tink.CoreApi;
 
@@ -10,9 +12,9 @@ interface Email {
 
 typedef EmailConfig = {
 	from:Address,
-	to:Array<Address>,
-	?cc:Array<Address>,
-	?bcc:Array<Address>,
+	to:AddressList,
+	?cc:AddressList,
+	?bcc:AddressList,
 	subject:String,
 	content:Content,
 	?attachments:Array<Attachment>

@@ -2,4 +2,5 @@
 -main RunTests
 -dce full
 -lib tink_unittest
--lib extern-js-aws-sdk
+
+-D no-deprecation-warnings

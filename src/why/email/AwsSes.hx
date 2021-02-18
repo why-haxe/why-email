@@ -10,14 +10,14 @@ using tink.CoreApi;
  * AWS SES
  * Requires the `aws-sdk` node module
  */
-class AwsSes implements Email {
+class AwsSes extends EmailBase {
 	var ses:SES;
 	
 	public function new(?config) {
 		ses = new SES(config);
 	}
 	
-	public function send(config:EmailConfig):Promise<Noise> {
+	function doSend(config:EmailConfig):Promise<Noise> {
 		return Promise.ofJsPromise(ses.sendEmail({
 			Source: config.from.toString(),
 			Destination: {

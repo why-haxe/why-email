@@ -12,7 +12,7 @@ using tink.CoreApi;
  * Requires the `nodemailer` node package
  * https://nodemailer.com/
  */
-class Nodemailer implements Email {
+class Nodemailer extends EmailBase {
 	
 	var transporter:Transporter;
 	
@@ -20,7 +20,7 @@ class Nodemailer implements Email {
 		transporter = NativeNodemailer.createTransport(config);
 	}
 	
-	public function send(config:EmailConfig):Promise<Noise> {
+	function doSend(config:EmailConfig):Promise<Noise> {
 		return Promise.ofJsPromise(transporter.sendMail({
 			from: config.from,
 			to: config.to,

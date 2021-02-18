@@ -23,6 +23,18 @@ abstract Address(AddressBase) from AddressBase to AddressBase {
 	}
 }
 
+@:forward
+abstract AddressList(Array<Address>) from Array<Address> to Array<Address> {
+	public inline function isEmpty() {
+		return this == null || this.length == 0;
+	}
+	
+	@:from
+	public static inline function fromStringArray(arr:Array<String>):AddressList {
+		return [for(v in arr) (v:Address)];
+	}
+}
+
 private typedef AddressBase = {
 	@:optional var name(default, never):String;
 	var address(default, never):String;

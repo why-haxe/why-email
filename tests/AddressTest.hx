@@ -1,6 +1,7 @@
 package;
 
 import why.Email;
+import why.email.Address;
 
 @:asserts
 class AddressTest {
