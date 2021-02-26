@@ -4,6 +4,10 @@ using StringTools;
 
 @:forward
 abstract Address(AddressBase) from AddressBase to AddressBase {
+	
+	// TODO: validate email address
+	// static var REGEX = ~/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	
 	@:from
 	public static function parse(v:String):Address {
 		var re = ~/^(.*)\s?<(.*)>$/;
