@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-nodemailer@^6.4.16:
-  version "6.4.16"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.16.tgz#5cb6391b1d79ab7eff32d6f9f48366b5a7117293"
+nodemailer@^7.0.7:
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-7.0.7.tgz#91a16235c08abb7805a4ec1537ca63edca79687f"
